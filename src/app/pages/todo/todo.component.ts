@@ -8,7 +8,11 @@ import {Todo} from '../../models/todo.model'
 })
 export class TodoComponent implements OnInit {
 
-  todos:Todo[] = [{title:"Python",info:"Basics",link:''}, {title:"Analytics",info:"Some Info",link:''}];
+  todos:Todo[] = [
+    {title:"Python",info:"Basics",link:''}, 
+    {title:"Analytics",info:"Some Info",link:''},
+    {title:"Third Placeholder",info:"Some more Info",link:''}
+  ];
 
   constructor() { }
 
