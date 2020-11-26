@@ -19,6 +19,11 @@ export class MainLayoutComponent implements OnInit {
       title: 'Todo',
       icon: 'map-outline',
       link: '/todo'
+    },
+    {
+      title: "Input Data",
+      icon: 'plus-square-outline',
+      link: '/data'
     }
   ];
   constructor(private readonly sidebarService: NbSidebarService) {

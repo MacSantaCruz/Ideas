@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo} from '../../models/todo.model'
+import { TodoService } from 'src/app/services/todo.service';
  
 @Component({
   selector: 'app-todo',
@@ -13,10 +14,19 @@ export class TodoComponent implements OnInit {
     {title:"Analytics",info:"Some Info",link:''},
     {title:"Third Placeholder",info:"Some more Info",link:''}
   ];
+  
+  pythonOutput: string = '';
 
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
+    this.todoService.getPythonScript().subscribe(res => {
+      let todo = new Todo();
+      todo.title = "Python Script";
+      todo.info = res['message'];
+      todo.link = '';
+      this.todos.push(todo);
+    });
   }
 
 }

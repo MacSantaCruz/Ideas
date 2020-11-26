@@ -1,0 +1,14 @@
+<h2>Game Input</h2>
+<button nbButton status="success" (click)="submitGame()">Submit</button>
+<button nbButton ghost status="success" (click)="addPlayer()"><nb-icon icon="plus-circle-outline"></nb-icon></button>
+<button nbButton ghost status="danger" (click)="subPlayer()"><nb-icon icon="minus-circle-outline"></nb-icon></button>
+
+<nb-select placeholder="Select Type" [(selected)]="selectedType" >
+    <nb-option *ngFor="let type of types" value={{type}}>{{type}}</nb-option>
+</nb-select>
+
+<nb-layout>
+    <nb-layout-column *ngFor="let item of [].constructor(numberOfPlayers); let i = index;">
+        <app-form  [deckList]="deckList" [playerList]="playerList" [numberList]="numberList" [participant]="participantList[i]"></app-form>
+    </nb-layout-column>
+</nb-layout>

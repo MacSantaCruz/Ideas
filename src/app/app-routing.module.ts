@@ -17,6 +17,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/todo/todo.module').then(m => m.TodoModule) 
       },
       {
+        path: 'data',
+        loadChildren: () => import('./pages/data/data.module').then(m => m.DataModule)
+      },
+      {
         path:'**',
         redirectTo:'home'
       }

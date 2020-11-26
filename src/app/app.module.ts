@@ -3,10 +3,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {NbIconModule, NbLayoutModule, NbMenuModule, NbSidebarModule, NbThemeModule} from '@nebular/theme';
+import {NbIconModule, NbLayoutModule, NbMenuModule, NbSidebarModule, NbThemeModule, NbInputModule, NbCardModule, NbToastrModule} from '@nebular/theme';
 import {NbEvaIconsModule} from '@nebular/eva-icons'
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { HomeComponent } from './pages/home/home.component'
+import { HttpClientModule } from '@angular/common/http'
+import { TodoService } from './services/todo.service';
+import { DeckService } from './services/deck.service';
+import { PlayerService } from './services/player.service';
+import { GameService } from './services/game.service';
 
 
 @NgModule({
@@ -22,10 +26,17 @@ import { HomeComponent } from './pages/home/home.component'
     NbSidebarModule.forRoot(),  
     NbMenuModule.forRoot(), 
     NbThemeModule.forRoot({name: 'cosmic'}),
+    NbToastrModule.forRoot(),
     NbLayoutModule,
-    NbEvaIconsModule
+    NbEvaIconsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    TodoService,
+    DeckService,
+    PlayerService,
+    GameService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
