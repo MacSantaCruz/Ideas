@@ -10,9 +10,9 @@ import { TodoService } from 'src/app/services/todo.service';
 export class TodoComponent implements OnInit {
 
   todos:Todo[] = [
-    {title:"Python",info:"Basics",link:''}, 
-    {title:"Analytics",info:"Some Info",link:''},
-    {title:"Third Placeholder",info:"Some more Info",link:''}
+    {title:"Python",info:"Basics",link:'',      properties:["name"],}, 
+    {title:"Analytics",info:"Some Info",link:'',      properties:["name"],},
+    {title:"Third Placeholder",info:"Some more Info",link:'',      properties:["name"],}
   ];
   
   pythonOutput: string = '';

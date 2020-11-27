@@ -16,9 +16,9 @@ export class MainLayoutComponent implements OnInit {
       home: true
     },
     {
-      title: 'Todo',
+      title: "Info and Instructions",
       icon: 'map-outline',
-      link: '/todo'
+      link: '/info'
     },
     {
       title: "Input Data",

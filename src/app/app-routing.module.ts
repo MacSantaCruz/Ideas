@@ -21,6 +21,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/data/data.module').then(m => m.DataModule)
       },
       {
+        path: 'info',
+        loadChildren: () => import('./pages/info/info.module').then(m => m.InfoModule)
+      },
+      {
         path:'**',
         redirectTo:'home'
       }
