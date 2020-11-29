@@ -1,0 +1,11 @@
+<div *ngFor="let field of fieldList">
+    <p>{{field.name}}</p>
+    <input *ngIf = "field.format === 'string'" [(ngModel)]="insertObj[field.objectKey]" type="text" nbInput fullWidth shape="semi-round" placeholder={{field.name}}>
+    <nb-select *ngIf = "field.format === 'singleSelect'" [(selected)]="insertObj[field.objectKey]" placeholder="Select">
+        <nb-option *ngFor="let choice of field.choices" value={{choice}}>{{choice}}</nb-option>
+    </nb-select>
+    <nb-select *ngIf = "field.format === 'multiSelect'" [(selected)]="insertObj[field.objectKey]" multiple placeholder="Select">
+        <nb-option *ngFor="let choice of field.choices" value={{choice}}>{{choice}}</nb-option>
+    </nb-select>
+</div>
+<button nbButton status="success" (click)="insertObject()">Create</button>

@@ -3,14 +3,14 @@
     <nb-option *ngFor="let player of playerList" value={{player._id}}>{{player.name}}</nb-option>
 </nb-select>
 
-<!-- <button nbButton ghost status="success"><nb-icon icon="plus-circle-outline"></nb-icon></button> -->
+<button nbButton ghost status="success" (click)="addPlayer()"><nb-icon icon="plus-circle-outline"></nb-icon></button>
 
 <h3>Input Deck</h3>
 <nb-select (selectedChange)="deckChange($event)" placeholder="Select Deck" [(selected)]="selectedDeckId" >
     <nb-option *ngFor="let deck of deckList" value={{deck._id}}>{{deck.name}}</nb-option>
 </nb-select>
 
-<!-- <button nbButton ghost status="success"><nb-icon icon="plus-circle-outline"></nb-icon></button> -->
+<button nbButton ghost status="success" (click)="addDeck()"><nb-icon icon="plus-circle-outline"></nb-icon></button>
 
 <h3>Placement</h3>
 <nb-select placeholder="Select Placement" (selectedChange)="placementChange($event)">

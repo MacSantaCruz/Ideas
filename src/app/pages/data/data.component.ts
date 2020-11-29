@@ -30,9 +30,21 @@ export class DataComponent implements OnInit {
   ngOnInit(): void {
     this.deckService.getDecks().subscribe(res => {
       this.deckList = res;
+      this.deckService.deckList.next(res);
     });
     this.playerService.getPlayerNames().subscribe(res => {
       this.playerList = res;
+      this.playerService.playerList.next(res);
+    });
+    this.playerService.playerList.subscribe(res => {
+      if(res !== null){
+        this.playerList = res;
+      }
+    })
+    this.deckService.deckList.subscribe(res => {
+      if(res !== null){
+        this.deckList = res;
+      }
     });
     this.participantList.push(new Participant());
     this.participantList.push(new Participant());
@@ -120,7 +132,7 @@ export class DataComponent implements OnInit {
         throw "Not all Participant fields are filled out"
       }
     }
-    if(this.selectedPlayerId === null){
+    if(this.selectedType === null){
       throw "No Type Selected";
     }
   }
