@@ -14,7 +14,7 @@ export class InsertFormComponent implements OnInit {
   @Input() objectType: string; 
   @Input() fieldList: any[] = [];
   insertObj: Deck | Player;
-  MAX_STRING_LENGTH = 15;
+  MAX_STRING_LENGTH = 50;
   constructor(protected windowRef: NbWindowRef, private playerService: PlayerService, private deckService: DeckService, private toastrService: NbToastrService) { }
 
   ngOnInit(): void {

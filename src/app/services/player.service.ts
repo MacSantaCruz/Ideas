@@ -9,8 +9,6 @@ import { Player } from '../models/player.model';
 })
 export class PlayerService {
 
-  //apiUrl ='http://localhost:3001/api/';
-  //apiUrl = 'https://node-api-szmkxbu6aq-uw.a.run.app/api/'
   apiUrl = environment.apiURL;
   playerUrl = '/player/';
   playerList: BehaviorSubject<Player[]> = new BehaviorSubject<Player[]>(null!);
@@ -19,6 +17,10 @@ export class PlayerService {
 
   getPlayerNames():Observable<Player[]>{
     return this.http.get<Player[]>(this.apiUrl + this.playerUrl + 'names/');
+  }
+
+  getPlayers():Observable<Player[]>{
+    return this.http.get<Player[]>(this.apiUrl + this.playerUrl);
   }
 
   postPlayer(player:any){

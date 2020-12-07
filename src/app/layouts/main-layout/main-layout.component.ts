@@ -24,6 +24,11 @@ export class MainLayoutComponent implements OnInit {
       title: "Input Data",
       icon: 'plus-square-outline',
       link: '/data'
+    },
+    {
+      title: "Game Data",
+      icon: 'minus-square-outline',
+      link: '/game'
     }
   ];
   constructor(private readonly sidebarService: NbSidebarService) {
