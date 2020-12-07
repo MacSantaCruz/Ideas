@@ -1,24 +1,32 @@
-<div *ngFor="let player of playerAndInfo">
-    <h2>{{player.name}}</h2>
-        <div>
-            <h4>Wins: {{player.wins.length}}</h4>
-            <div *ngFor="let win of player.wins">
-                <p>{{win.type}}</p>
-                <h5>Winner Info</h5>
-                <p>Deck: {{win.winner.deck.name}}</p>
-                <p>Color: {{win.winner.deck.color}}</p>
-                <h5>Loser Info</h5>
-                <div *ngFor="let loser of win.loser">
-                    <p></p>
-                    <p>Loser: {{loser.player.name}}</p>
-                    <p>Deck: {{loser.deck.name}}</p>
-                    <p>Color: {{loser.deck.color}}</p>
-                </div>
-            </div>
-            <h4>Losses: {{player.losses.length}}</h4>
-            <div *ngFor="let loss of player.losses">
-                <p>{{loss.type}}</p>
-            </div>
-        </div>
+<div *ngFor="let player of playerAndInfo"> 
+    <h2>{{player.name}} - {{player.wins.length}} and {{player.losses.length}}</h2>
+    <table class="darkTable">
+        <tr>
+            <th>Opponent</th>
+            <th>Result</th>
+            <th>Format</th>
+            <th>Winning Deck</th>
+            <th>Deck color</th>
+            <th>Loser Deck</th>
+            <th>Deck color</th>
+        </tr>
+        <tr *ngFor="let win of player.wins">
+            <td>Win</td>
+            <td>{{win.loser[0].player.name}}</td>
+            <td>{{win.type}}</td>
+            <td>{{win.winner.deck.name}}</td>
+            <td>{{win.winner.deck.color}}</td>
+            <td>{{win.loser[0].deck.name}}</td>
+            <td>{{win.loser[0].deck.color}}</td>
+        </tr>
+        <tr *ngFor="let loss of player.losses">
+            <td>Loss</td>
+            <td>{{loss.winner.player.name}}</td>
+            <td>{{loss.type}}</td>
+            <td>{{loss.winner.deck.name}}</td>
+            <td>{{loss.winner.deck.color}}</td>
+            <td>{{loss.loser[0].deck.name}}</td>
+            <td>{{loss.loser[0].deck.color}}</td>
+        </tr>
+    </table>
 </div>
-
